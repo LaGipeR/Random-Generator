@@ -13,6 +13,12 @@ impl RandGen {
         RandGen { x: seed }
     }
 
+    pub fn new_from_time() -> RandGen {
+        let mut res = Self::new(0);
+        res.set_seed_from_time();
+        res
+    }
+
     pub fn set_seed_from_time(&mut self) {
         use std::time::{SystemTime, UNIX_EPOCH};
 
